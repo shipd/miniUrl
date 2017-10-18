@@ -1,0 +1,53 @@
+
+README
+
+INSTALL
+
+After cloning repository:
+
+1. Change directory into the miniUrl directory:    $ cd miniUrl
+2. Create a virtual environment:                   $ virtualenv env
+3. Activate the virtual environment:               $ source env/bin/activate
+4. Install dependencies:                           $ pip install -r requirements.txt
+5. Install the app locally                         $ pip install --editable .
+6. Set up environment                              $ export FLASK_APP=flaskr
+5. Initialize the database                         $ flask initdb
+
+
+RUN
+
+To run the app:
+
+    $ flask run
+
+
+USE
+
+To shorten a URL (http or https)
+--------------------------------
+Issue a POST command to http://localhost:5000/shorten with json in the following format:
+    {"default": <url to shorten> }
+    Example:
+    curl -H "Content-Type: application/json"  -X POST -d \
+        '{"default": "http://cnn.com"}' http://localhost:5000/shorten
+
+
+To shorten a URL and allow for device-specific redirection
+----------------------------------------------------------
+Again issue a POST command to http://localhost:5000/shorten, but include in the json
+the additional urls (only 'tablet' and 'mobile' are supported - one or both can be included)
+
+Example:
+    curl -H "Content-Type: application/json"  -X POST -d \
+        '{"default": "http://cnn.com", "mobile":"http://netflix.com", "tablet": "http://washingtonpost.com"}' \
+        http://localhost:5000/shorten
+
+
+To obtain statistics for all shortened urls
+-------------------------------------------
+Issue a GET request to http://localhost:5000/stats
+
+
+Notes
+-----
+Logging to be added
