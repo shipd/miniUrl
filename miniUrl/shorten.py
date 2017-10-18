@@ -120,6 +120,6 @@ def retrieve_url(db, mini_url, device):
 
 
 def create_url(mini_url_id, base_url):
-    return base_url + encode(mini_url_id)
+    return base_url + "/" + encode(mini_url_id)
 
 

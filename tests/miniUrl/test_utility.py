@@ -1,4 +1,5 @@
 from miniUrl.utility import *
+from miniUrl import app
 import pytest
 
 
@@ -27,13 +28,13 @@ def test_validate_json_raises(json):
 
 @pytest.mark.parametrize("json", [
     {"default": "ftp://www.example.com"},
-    {"default": "http://localhost:5000"},
+    {"default": app.config['MINI_URL_BASE']},
     {"mobile": "news.bbc.co.uk"},
     {"mobile": "DROP 'TABLE"},
 ])
 def test_validate_urls(json):
     with pytest.raises(UrlValidationException):
-        validate_urls(json, "http://localhost:5000")
+        validate_urls(json, app.config['MINI_URL_BASE'])
 
 
 @pytest.mark.parametrize("user_agent_str, expected", [

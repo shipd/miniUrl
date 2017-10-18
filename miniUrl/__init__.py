@@ -10,7 +10,7 @@ app.config.update(dict(
     USERNAME='admin',
     PASSWORD='default',
     SCHEMA=join(db_dir, 'schema.sql'),
-    MINI_URL_BASE='http://localhost:5000/mini/'
+    MINI_URL_BASE='http://localhost:5000/mini'
 ))
 
 

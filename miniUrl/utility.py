@@ -44,9 +44,10 @@ def validate_json(json_obj):
 
 def validate_urls(json_obj, app_url):
     """
-    Checks that each supplied url in json request object is a valid url
-    and that it is not a reference to the mini url site
+    Checks that each supplied url in json request object is a valid url and
+    that it is not a reference to the mini url site (to avoid redirect loop)
     :param json_obj: a json object
+    :param app_url: the base url for the miniurls
     """
     for key in json_obj:
         url = json_obj[key]

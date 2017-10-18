@@ -8,10 +8,9 @@ After cloning repository:
 1. Change directory into the miniUrl directory:    $ cd miniUrl
 2. Create a virtual environment:                   $ virtualenv env
 3. Activate the virtual environment:               $ source env/bin/activate
-4. Install dependencies:                           $ pip install -r requirements.txt
-5. Install the app locally                         $ pip install --editable .
-6. Set up environment                              $ export FLASK_APP=flaskr
-5. Initialize the database                         $ flask initdb
+4. Install the app locally                         $ pip install --editable .
+5. Set up environment                              $ export FLASK_APP=miniUrl
+6. Initialize the database                         $ flask initdb
 
 
 RUN
